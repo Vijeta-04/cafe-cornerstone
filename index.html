@@ -1,0 +1,1691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cafe CornerStone by Pallavi Daga | Jaipur's Premier Luxury Café</title>
+<meta name="description" content="Cafe CornerStone by Pallavi Daga - Jaipur's most elegant café destination. Experience artisanal coffee, gourmet vegetarian cuisine, and sophisticated ambience in C-Scheme, Jaipur.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&family=Poppins:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<style>
+/* ===== CSS VARIABLES ===== */
+:root {
+  --cream: #FAF6EF;
+  --ivory: #F5EFE0;
+  --beige: #EDE0C8;
+  --gold: #C9A84C;
+  --gold-light: #E8C97A;
+  --gold-dark: #A07830;
+  --brown: #5C3D2E;
+  --brown-dark: #3A2218;
+  --coffee: #6F4E37;
+  --espresso: #2C1810;
+  --charcoal: #1A1A1A;
+  --text-dark: #2D2015;
+  --text-muted: #7A6555;
+  --white: #FFFFFF;
+  --glass: rgba(255,255,255,0.08);
+  --glass-border: rgba(201,168,76,0.25);
+  --shadow-gold: 0 8px 40px rgba(201,168,76,0.18);
+  --shadow-dark: 0 20px 60px rgba(0,0,0,0.25);
+  --transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Poppins', sans-serif;
+  background: var(--cream);
+  color: var(--text-dark);
+  overflow-x: hidden;
+  cursor: none;
+}
+a { text-decoration: none; color: inherit; }
+img { max-width: 100%; display: block; }
+button { cursor: none; border: none; background: none; font-family: inherit; }
+
+/* ===== CUSTOM CURSOR ===== */
+.cursor-dot {
+  position: fixed; width: 8px; height: 8px; border-radius: 50%;
+  background: var(--gold); pointer-events: none; z-index: 99999;
+  transform: translate(-50%, -50%); transition: transform 0.1s, width 0.3s, height 0.3s;
+}
+.cursor-ring {
+  position: fixed; width: 36px; height: 36px; border-radius: 50%;
+  border: 1.5px solid var(--gold); pointer-events: none; z-index: 99998;
+  transform: translate(-50%, -50%); transition: transform 0.15s ease-out, width 0.3s, height 0.3s, opacity 0.3s;
+}
+.cursor-dot.hover { width: 14px; height: 14px; }
+.cursor-ring.hover { width: 56px; height: 56px; opacity: 0.5; }
+
+/* ===== PRELOADER ===== */
+#preloader {
+  position: fixed; inset: 0; background: var(--espresso);
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  z-index: 99999; transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+#preloader.hidden { opacity: 0; visibility: hidden; }
+.preloader-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.2rem; color: var(--gold); letter-spacing: 0.1em;
+  animation: fadeInUp 0.8s ease forwards;
+}
+.preloader-sub { font-size: 0.75rem; color: var(--beige); letter-spacing: 0.35em; margin-top: 8px; text-transform: uppercase; opacity: 0.7; }
+.preloader-bar-wrap { width: 180px; height: 1px; background: rgba(201,168,76,0.2); margin-top: 30px; overflow: hidden; }
+.preloader-bar { height: 100%; background: linear-gradient(90deg, transparent, var(--gold), transparent); animation: preloadSlide 1.6s ease-in-out infinite; }
+@keyframes preloadSlide { 0% { transform: translateX(-100%); } 100% { transform: translateX(200%); } }
+.coffee-icon { font-size: 2.8rem; margin-bottom: 18px; animation: float 2s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+/* ===== NAVBAR ===== */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  padding: 18px 5%; display: flex; align-items: center; justify-content: space-between;
+  transition: var(--transition);
+}
+nav.scrolled {
+  background: rgba(26,10,5,0.92); backdrop-filter: blur(20px);
+  padding: 12px 5%; box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+  border-bottom: 1px solid var(--glass-border);
+}
+.nav-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; color: var(--gold); letter-spacing: 0.05em; line-height: 1.1; }
+.nav-logo span { display: block; font-size: 0.6rem; color: var(--beige); letter-spacing: 0.3em; font-family: 'Poppins', sans-serif; font-weight: 300; text-transform: uppercase; }
+.nav-links { display: flex; gap: 32px; list-style: none; align-items: center; }
+.nav-links a { font-size: 0.78rem; font-weight: 500; color: rgba(255,255,255,0.85); letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.3s; position: relative; }
+.nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--gold); transition: width 0.3s; }
+.nav-links a:hover { color: var(--gold); }
+.nav-links a:hover::after { width: 100%; }
+.nav-cta {
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  color: var(--espresso) !important; padding: 9px 22px; border-radius: 2px;
+  font-weight: 600 !important; letter-spacing: 0.08em !important;
+  transition: var(--transition) !important; box-shadow: 0 4px 20px rgba(201,168,76,0.35);
+}
+.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 8px 30px rgba(201,168,76,0.5) !important; }
+.nav-cta::after { display: none !important; }
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+.hamburger span { display: block; width: 26px; height: 1.5px; background: var(--gold); transition: var(--transition); }
+
+/* ===== HERO SECTION ===== */
+#hero {
+  position: relative; height: 100vh; min-height: 700px;
+  display: flex; align-items: center; justify-content: center; overflow: hidden;
+}
+.hero-video-wrap {
+  position: absolute; inset: 0; z-index: 0;
+  background: linear-gradient(135deg, #1a0a05 0%, #2c1810 30%, #3d2518 60%, #1a0a05 100%);
+}
+.hero-video-wrap::before {
+  content: ''; position: absolute; inset: 0; z-index: 1;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='600' height='600'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity: 0.5;
+}
+/* Animated coffee background elements */
+.hero-bg-circles { position: absolute; inset: 0; z-index: 1; overflow: hidden; }
+.hero-circle {
+  position: absolute; border-radius: 50%; opacity: 0.04;
+  background: radial-gradient(circle, var(--gold), transparent);
+  animation: circlePulse 8s ease-in-out infinite;
+}
+.hero-circle:nth-child(1) { width: 600px; height: 600px; top: -200px; right: -100px; animation-delay: 0s; }
+.hero-circle:nth-child(2) { width: 400px; height: 400px; bottom: -150px; left: -100px; animation-delay: 3s; }
+.hero-circle:nth-child(3) { width: 300px; height: 300px; top: 40%; left: 60%; animation-delay: 5s; }
+@keyframes circlePulse { 0%,100% { transform: scale(1); opacity: 0.04; } 50% { transform: scale(1.15); opacity: 0.08; } }
+.hero-overlay {
+  position: absolute; inset: 0; z-index: 2;
+  background: linear-gradient(180deg, rgba(10,5,2,0.55) 0%, rgba(10,5,2,0.3) 40%, rgba(10,5,2,0.7) 100%);
+}
+.hero-content {
+  position: relative; z-index: 3; text-align: center; max-width: 880px; padding: 0 24px;
+}
+.hero-eyebrow {
+  display: inline-block; font-size: 0.68rem; letter-spacing: 0.45em;
+  color: var(--gold); text-transform: uppercase; font-weight: 500;
+  margin-bottom: 24px; opacity: 0; animation: fadeInUp 0.9s 0.4s ease forwards;
+  border-bottom: 1px solid rgba(201,168,76,0.35); padding-bottom: 8px;
+}
+.hero-title {
+  font-family: 'Playfair Display', serif; font-size: clamp(3rem, 7vw, 6.5rem);
+  font-weight: 700; color: var(--white); line-height: 1.05; letter-spacing: -0.01em;
+  margin-bottom: 24px; opacity: 0; animation: fadeInUp 0.9s 0.65s ease forwards;
+}
+.hero-title em { font-style: italic; color: var(--gold-light); }
+.hero-subtitle {
+  font-size: clamp(0.9rem, 1.5vw, 1.15rem); color: rgba(255,255,255,0.75); line-height: 1.75;
+  max-width: 580px; margin: 0 auto 44px; font-weight: 300;
+  opacity: 0; animation: fadeInUp 0.9s 0.9s ease forwards;
+}
+.hero-buttons { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; opacity: 0; animation: fadeInUp 0.9s 1.1s ease forwards; }
+.btn-primary {
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  color: var(--espresso); padding: 16px 38px; font-size: 0.78rem;
+  font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase;
+  border-radius: 2px; transition: var(--transition);
+  box-shadow: 0 6px 30px rgba(201,168,76,0.4); font-family: 'Poppins', sans-serif;
+}
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(201,168,76,0.6); }
+.btn-outline {
+  background: transparent; color: var(--white); padding: 15px 38px;
+  font-size: 0.78rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase;
+  border: 1px solid rgba(255,255,255,0.45); border-radius: 2px; transition: var(--transition);
+  font-family: 'Poppins', sans-serif;
+}
+.btn-outline:hover { background: rgba(255,255,255,0.1); border-color: var(--gold); color: var(--gold); transform: translateY(-3px); }
+.hero-scroll {
+  position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+  z-index: 3; display: flex; flex-direction: column; align-items: center; gap: 10px;
+  opacity: 0; animation: fadeInUp 1s 1.5s ease forwards;
+}
+.hero-scroll span { font-size: 0.6rem; letter-spacing: 0.35em; color: rgba(255,255,255,0.5); text-transform: uppercase; }
+.scroll-line { width: 1px; height: 50px; background: linear-gradient(to bottom, var(--gold), transparent); animation: scrollLine 2s ease-in-out infinite; }
+@keyframes scrollLine { 0%,100% { opacity: 1; transform: scaleY(1); transform-origin: top; } 50% { opacity: 0.3; } }
+.hero-social {
+  position: absolute; right: 30px; top: 50%; transform: translateY(-50%);
+  z-index: 3; display: flex; flex-direction: column; gap: 18px;
+  opacity: 0; animation: fadeInRight 1s 1.3s ease forwards;
+}
+.hero-social a {
+  width: 38px; height: 38px; border: 1px solid rgba(201,168,76,0.35);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  color: rgba(255,255,255,0.6); font-size: 0.85rem; transition: var(--transition);
+  backdrop-filter: blur(8px); background: rgba(255,255,255,0.04);
+}
+.hero-social a:hover { background: var(--gold); color: var(--espresso); border-color: var(--gold); transform: scale(1.1); }
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeInRight { from { opacity: 0; transform: translateX(20px); } to { opacity: 1; transform: translateX(0); } }
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+.reveal-left { opacity: 0; transform: translateX(-40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal-left.visible { opacity: 1; transform: translateX(0); }
+.reveal-right { opacity: 0; transform: translateX(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal-right.visible { opacity: 1; transform: translateX(0); }
+
+/* ===== SECTION BASICS ===== */
+section { position: relative; }
+.section-eyebrow {
+  font-size: 0.65rem; letter-spacing: 0.42em; text-transform: uppercase;
+  color: var(--gold); font-weight: 600; margin-bottom: 14px; display: block;
+}
+.section-title {
+  font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 4.5vw, 3.8rem);
+  font-weight: 700; line-height: 1.12; color: var(--brown-dark);
+}
+.section-title em { font-style: italic; color: var(--gold-dark); }
+.section-divider { width: 60px; height: 2px; background: linear-gradient(90deg, var(--gold), var(--gold-light)); margin: 20px 0 28px; }
+.section-divider.center { margin: 20px auto 28px; }
+.container { max-width: 1240px; margin: 0 auto; padding: 0 5%; }
+
+/* ===== ABOUT SECTION ===== */
+#about { padding: 100px 0; background: var(--cream); overflow: hidden; }
+.about-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+.about-text { padding-right: 20px; }
+.about-text p { color: var(--text-muted); line-height: 1.9; font-size: 0.95rem; margin-bottom: 18px; font-weight: 300; }
+.about-text p strong { color: var(--brown); font-weight: 600; }
+.about-badges { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 28px; }
+.badge {
+  background: linear-gradient(135deg, var(--ivory), var(--beige));
+  border: 1px solid rgba(201,168,76,0.3); padding: 8px 18px; border-radius: 30px;
+  font-size: 0.72rem; color: var(--brown); font-weight: 600; letter-spacing: 0.08em;
+}
+.about-images { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.about-img {
+  border-radius: 4px; overflow: hidden; position: relative;
+  box-shadow: var(--shadow-dark);
+}
+.about-img:nth-child(1) { grid-column: 1 / -1; }
+.about-img-placeholder {
+  width: 100%; aspect-ratio: 4/3; display: flex; align-items: center; justify-content: center;
+  font-size: 3rem; flex-direction: column; gap: 8px;
+  position: relative; overflow: hidden;
+}
+.about-img:nth-child(1) .about-img-placeholder { aspect-ratio: 16/8; }
+.about-img:nth-child(2) .about-img-placeholder,
+.about-img:nth-child(3) .about-img-placeholder { aspect-ratio: 3/4; }
+.img-coffee { background: url('images/artisanal\ coffee\ bar.jpeg'); }
+.img-interior { background: url('images/cafe\ interior.jpeg') center/cover no-repeat; }
+.img-food { background: url('images/handicraft.jpeg')center/cover no-repeat; }
+.img-dessert { background: url('images/brownie.jpeg')center/cover no-repeat; }
+.about-img-placeholder span { font-family: 'Playfair Display', serif; font-size: 0.8rem; color: rgba(201,168,76,0.7); letter-spacing: 0.15em; }
+.about-img-placeholder .img-icon { font-size: 3.5rem; opacity: 0.6; }
+
+/* Coffee bean decorative photo grid using unicode art */
+.photo-label { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.7), transparent); padding: 20px 16px 12px; }
+.photo-label-text { font-size: 0.7rem; color: rgba(255,255,255,0.85); letter-spacing: 0.15em; text-transform: uppercase; }
+
+/* ===== MENU SECTION ===== */
+#menu { padding: 100px 0; background: var(--espresso); }
+#menu .section-title { color: var(--ivory); }
+#menu .section-eyebrow { color: var(--gold-light); }
+.menu-header { text-align: center; margin-bottom: 50px; }
+.menu-search-wrap { position: relative; max-width: 380px; margin: 28px auto 0; }
+.menu-search {
+  width: 100%; padding: 13px 20px 13px 46px; background: rgba(255,255,255,0.07);
+  border: 1px solid var(--glass-border); border-radius: 3px;
+  color: var(--ivory); font-size: 0.85rem; font-family: 'Poppins', sans-serif;
+  outline: none; transition: var(--transition); backdrop-filter: blur(10px);
+}
+.menu-search::placeholder { color: rgba(255,255,255,0.35); }
+.menu-search:focus { border-color: var(--gold); background: rgba(255,255,255,0.1); }
+.menu-search-icon { position: absolute; left: 16px; top: 50%; transform: translateY(-50%); color: var(--gold); font-size: 0.9rem; }
+.menu-tabs { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-bottom: 44px; }
+.menu-tab {
+  padding: 9px 20px; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase; border: 1px solid rgba(201,168,76,0.25);
+  color: rgba(255,255,255,0.55); border-radius: 2px; cursor: pointer;
+  transition: var(--transition); background: transparent; font-family: 'Poppins', sans-serif;
+}
+.menu-tab:hover, .menu-tab.active {
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  color: var(--espresso); border-color: var(--gold);
+}
+.menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
+.menu-card {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(201,168,76,0.12);
+  border-radius: 4px; overflow: hidden; transition: var(--transition);
+  backdrop-filter: blur(10px); cursor: pointer;
+}
+.menu-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.4), 0 0 0 1px var(--gold); }
+.menu-card.hidden { display: none; }
+.menu-card-img {
+  width: 100%; aspect-ratio: 4/3; display: flex; align-items: center;
+  justify-content: center; font-size: 3rem; position: relative; overflow: hidden;
+  flex-direction: column; gap: 6px;
+}
+.menu-card-img-label { font-size: 0.65rem; color: rgba(201,168,76,0.7); letter-spacing: 0.15em; font-family: 'Poppins', sans-serif; }
+.menu-card-img.sig::after {
+  content: '✦ Signature'; position: absolute; top: 12px; right: 12px;
+  background: var(--gold); color: var(--espresso); font-size: 0.58rem;
+  font-weight: 700; letter-spacing: 0.1em; padding: 4px 10px; border-radius: 20px;
+  font-family: 'Poppins', sans-serif;
+}
+.menu-card-body { padding: 18px 20px 20px; }
+.menu-card-name { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--ivory); margin-bottom: 6px; }
+.menu-card-desc { font-size: 0.75rem; color: rgba(255,255,255,0.45); line-height: 1.6; margin-bottom: 14px; }
+.menu-card-footer { display: flex; align-items: center; justify-content: space-between; }
+.menu-card-price { font-size: 1rem; font-weight: 700; color: var(--gold); font-family: 'Playfair Display', serif; }
+.menu-card-tag { font-size: 0.6rem; color: rgba(255,255,255,0.3); letter-spacing: 0.1em; text-transform: uppercase; border: 1px solid rgba(255,255,255,0.1); padding: 3px 9px; border-radius: 20px; }
+.no-results { text-align: center; color: rgba(255,255,255,0.35); padding: 60px 0; font-size: 0.9rem; display: none; }
+
+/* ===== TESTIMONIALS ===== */
+#testimonials { padding: 100px 0; background: var(--ivory); }
+.rating-hero { text-align: center; margin-bottom: 50px; }
+.stars-big { font-size: 2rem; color: var(--gold); letter-spacing: 6px; display: block; margin-bottom: 10px; }
+.rating-num { font-family: 'Playfair Display', serif; font-size: 4rem; color: var(--brown-dark); font-weight: 700; }
+.rating-sub { font-size: 0.8rem; color: var(--text-muted); letter-spacing: 0.1em; margin-top: 4px; }
+.testimonial-carousel { position: relative; overflow: hidden; }
+.testimonial-track { display: flex; transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1); }
+.testimonial-slide { min-width: 100%; padding: 0 15%; }
+.testi-card {
+  background: var(--white); border-radius: 4px; padding: 44px 48px;
+  box-shadow: 0 10px 50px rgba(90,60,30,0.1); position: relative; text-align: center;
+  border-top: 3px solid var(--gold);
+}
+.testi-quote-icon { font-size: 3.5rem; color: var(--gold); opacity: 0.15; position: absolute; top: 20px; left: 30px; font-family: Georgia, serif; line-height: 1; }
+.testi-stars { color: var(--gold); font-size: 1rem; letter-spacing: 3px; margin-bottom: 20px; }
+.testi-text { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.1rem; color: var(--brown-dark); line-height: 1.75; margin-bottom: 28px; }
+.testi-author { display: flex; align-items: center; justify-content: center; gap: 14px; }
+.testi-avatar { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, var(--gold), var(--gold-dark)); display: flex; align-items: center; justify-content: center; font-size: 1.1rem; color: var(--espresso); font-weight: 700; font-family: 'Playfair Display', serif; }
+.testi-name { font-weight: 600; font-size: 0.9rem; color: var(--brown-dark); }
+.testi-role { font-size: 0.72rem; color: var(--text-muted); }
+.carousel-nav { display: flex; justify-content: center; gap: 10px; margin-top: 36px; }
+.carousel-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--beige); cursor: pointer; transition: var(--transition); }
+.carousel-dot.active { background: var(--gold); width: 28px; border-radius: 4px; }
+.carousel-arrows { position: absolute; top: 50%; left: 0; right: 0; transform: translateY(-50%); display: flex; justify-content: space-between; pointer-events: none; padding: 0 3%; }
+.carousel-arrow { width: 44px; height: 44px; border-radius: 50%; background: var(--white); border: 1px solid rgba(201,168,76,0.3); display: flex; align-items: center; justify-content: center; color: var(--gold); font-size: 0.9rem; pointer-events: all; cursor: pointer; transition: var(--transition); box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+.carousel-arrow:hover { background: var(--gold); color: var(--white); }
+
+/* ===== GALLERY ===== */
+#gallery { padding: 100px 0; background: var(--cream); }
+.gallery-header { text-align: center; margin-bottom: 50px; }
+.gallery-grid { columns: 3 280px; gap: 16px; }
+.gallery-item {
+  break-inside: avoid; margin-bottom: 16px; border-radius: 4px; overflow: hidden;
+  cursor: pointer; position: relative; transition: var(--transition);
+}
+.gallery-item:hover .gallery-overlay { opacity: 1; }
+.gallery-item:hover { transform: scale(1.02); }
+.gallery-placeholder {
+  width: 100%; display: flex; align-items: center; justify-content: center;
+  font-size: 2.5rem; flex-direction: column; gap: 8px; padding: 30px 20px;
+  min-height: 180px;
+}
+.gallery-overlay {
+  position: absolute; inset: 0; background: rgba(44,24,16,0.7);
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; transition: var(--transition);
+}
+.gallery-overlay i { font-size: 1.5rem; color: var(--gold); }
+.g1 { background: url('images/coffe.jpeg')center/cover no-repeat; }
+.g2 { background: url('images/cafe interior.jpeg')center/cover no-repeat; }
+.g3 { background: url('images/pizza.jpeg')center/cover no-repeat; }
+.g4 { background: url('images/brownie.jpeg')center/cover no-repeat; }
+.g5 { background: url('images/fresh\ ingredeint.jpeg')center/cover no-repeat; }
+.g6 { background: url('images/celebration.jpeg')center/cover no-repeat; }
+.g7 { background: url('images/crossiant.jpeg')center/cover no-repeat; }
+.g8 { background: url('images/lighitning.jpeg')center/cover no-repeat; }
+.g9 { background: url('images/south\ indian\ flavour\ coffe.jpeg')center/cover no-repeat; }
+.gallery-placeholder .g-label { font-size: 0.65rem; color: rgba(201,168,76,0.7); letter-spacing: 0.15em; font-family: 'Poppins', sans-serif; }
+
+/* ===== WHY US ===== */
+#why-us { padding: 100px 0; background: var(--brown-dark); }
+#why-us .section-title { color: var(--ivory); }
+#why-us .section-eyebrow { color: var(--gold-light); }
+.why-header { text-align: center; margin-bottom: 60px; }
+.why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+.why-card {
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(201,168,76,0.15);
+  border-radius: 4px; padding: 40px 30px; text-align: center; transition: var(--transition);
+  backdrop-filter: blur(10px); position: relative; overflow: hidden;
+}
+.why-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(201,168,76,0.05), transparent); opacity: 0; transition: opacity 0.4s; }
+.why-card:hover { transform: translateY(-8px); border-color: var(--gold); box-shadow: var(--shadow-gold); }
+.why-card:hover::before { opacity: 1; }
+.why-icon { font-size: 2.8rem; margin-bottom: 18px; display: block; }
+.why-card h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--ivory); margin-bottom: 12px; }
+.why-card p { font-size: 0.8rem; color: rgba(255,255,255,0.5); line-height: 1.75; }
+
+/* ===== RESERVATION ===== */
+#reservation { padding: 100px 0; background: var(--cream); }
+.reservation-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: start; }
+.res-info h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3.5vw, 3rem); color: var(--brown-dark); margin-bottom: 20px; }
+.res-info p { color: var(--text-muted); line-height: 1.8; font-size: 0.92rem; margin-bottom: 28px; }
+.res-perks { list-style: none; display: flex; flex-direction: column; gap: 14px; }
+.res-perks li { display: flex; align-items: center; gap: 12px; font-size: 0.85rem; color: var(--brown); }
+.res-perks li i { width: 32px; height: 32px; background: linear-gradient(135deg, var(--gold), var(--gold-dark)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.75rem; color: var(--espresso); flex-shrink: 0; }
+.res-form {
+  background: var(--white); border-radius: 6px; padding: 44px;
+  box-shadow: 0 20px 70px rgba(90,60,30,0.12); border-top: 4px solid var(--gold);
+}
+.form-title { font-family: 'Playfair Display', serif; font-size: 1.6rem; color: var(--brown-dark); margin-bottom: 28px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-group { margin-bottom: 18px; }
+.form-group label { display: block; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--coffee); margin-bottom: 8px; }
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%; padding: 13px 16px; border: 1px solid rgba(90,60,30,0.15);
+  border-radius: 3px; font-family: 'Poppins', sans-serif; font-size: 0.875rem;
+  color: var(--text-dark); background: var(--cream); outline: none; transition: var(--transition);
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,168,76,0.12); }
+.form-group textarea { resize: vertical; min-height: 90px; }
+.form-group select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23C9A84C' stroke-width='1.5' fill='none'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; }
+.form-seating { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 18px; }
+.seating-opt input[type="radio"] { display: none; }
+.seating-opt label {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 12px; border: 1px solid rgba(90,60,30,0.15); border-radius: 3px;
+  cursor: pointer; font-size: 0.78rem; color: var(--text-muted); transition: var(--transition);
+  background: var(--cream);
+}
+.seating-opt input:checked + label { border-color: var(--gold); background: rgba(201,168,76,0.08); color: var(--brown); }
+.btn-submit {
+  width: 100%; padding: 16px; background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  color: var(--espresso); font-size: 0.8rem; font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; border-radius: 3px; transition: var(--transition);
+  font-family: 'Poppins', sans-serif; margin-bottom: 14px; cursor: pointer;
+}
+.btn-submit:hover { transform: translateY(-2px); box-shadow: 0 10px 35px rgba(201,168,76,0.4); }
+.btn-whatsapp {
+  width: 100%; padding: 15px; background: linear-gradient(135deg, #25D366, #1ebe5d);
+  color: white; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.12em;
+  text-transform: uppercase; border-radius: 3px; transition: var(--transition);
+  font-family: 'Poppins', sans-serif; display: flex; align-items: center;
+  justify-content: center; gap: 10px; cursor: pointer;
+}
+.btn-whatsapp:hover { transform: translateY(-2px); box-shadow: 0 10px 35px rgba(37,211,102,0.35); }
+
+/* Booking confirmation */
+.booking-success {
+  display: none; text-align: center; padding: 40px 20px;
+}
+.booking-success.show { display: block; }
+.success-icon { font-size: 4rem; color: var(--gold); margin-bottom: 20px; animation: float 2s ease-in-out infinite; }
+.success-id { background: var(--cream); border-radius: 4px; padding: 16px; margin: 20px 0; border: 1px solid rgba(201,168,76,0.25); }
+.success-id span { font-size: 0.7rem; color: var(--text-muted); letter-spacing: 0.1em; text-transform: uppercase; display: block; }
+.success-id strong { font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--brown); }
+
+/* ===== EVENT BOOKINGS ===== */
+#events { padding: 80px 0; background: var(--ivory); }
+.events-header { text-align: center; margin-bottom: 50px; }
+.events-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-bottom: 50px; }
+.event-card {
+  background: var(--white); border-radius: 4px; padding: 32px 24px; text-align: center;
+  transition: var(--transition); border-bottom: 3px solid transparent;
+  box-shadow: 0 4px 20px rgba(90,60,30,0.07);
+}
+.event-card:hover { transform: translateY(-6px); border-bottom-color: var(--gold); box-shadow: 0 12px 40px rgba(90,60,30,0.14); }
+.event-icon { font-size: 2.5rem; margin-bottom: 14px; display: block; }
+.event-card h3 { font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--brown-dark); margin-bottom: 8px; }
+.event-card p { font-size: 0.78rem; color: var(--text-muted); line-height: 1.65; }
+
+/* ===== LOCATION ===== */
+#location { padding: 100px 0; background: var(--espresso); }
+#location .section-title { color: var(--ivory); }
+#location .section-eyebrow { color: var(--gold-light); }
+.location-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+.location-info { color: rgba(255,255,255,0.75); }
+.location-detail { display: flex; gap: 16px; align-items: flex-start; margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid rgba(255,255,255,0.07); }
+.location-detail:last-of-type { border-bottom: none; }
+.location-icon { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--gold), var(--gold-dark)); display: flex; align-items: center; justify-content: center; font-size: 1rem; color: var(--espresso); flex-shrink: 0; }
+.location-detail h4 { font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
+.location-detail p { font-size: 0.87rem; line-height: 1.65; }
+.map-wrap { border-radius: 6px; overflow: hidden; box-shadow: 0 20px 50px rgba(0,0,0,0.4); }
+.map-wrap iframe { display: block; border: none; }
+.directions-btn {
+  display: inline-flex; align-items: center; gap: 8px; margin-top: 18px;
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  color: var(--espresso); padding: 12px 28px; border-radius: 3px;
+  font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+  transition: var(--transition); box-shadow: 0 6px 25px rgba(201,168,76,0.3);
+}
+.directions-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 35px rgba(201,168,76,0.45); }
+
+/* ===== INSTAGRAM ===== */
+#instagram { padding: 80px 0; background: var(--cream); }
+.instagram-header { text-align: center; margin-bottom: 40px; }
+.insta-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; }
+.insta-item {
+  aspect-ratio: 1; overflow: hidden; border-radius: 3px; cursor: pointer; position: relative;
+}
+.insta-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+.insta-placeholder {
+  width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; font-size: 2rem;
+  transition: transform 0.4s;
+}
+.insta-item:hover .insta-placeholder { transform: scale(1.08); }
+.insta-overlay { position: absolute; inset: 0; background: rgba(44,24,16,0.65); display: flex; align-items: center; justify-content: center; opacity: 0; transition: var(--transition); }
+.insta-overlay i { font-size: 1.8rem; color: var(--white); }
+.insta-item:hover .insta-overlay { opacity: 1; }
+.i1 { background:url('images/coffee.jpeg') center/cover no-repeat; }
+.i2 { background: url('images/pizzaaa.jpeg')center/cover no-repeat; }
+.i3 { background: url('images/chocolate.jpeg')center/cover no-repeat; }
+.i4 { background: url('images/fresh.jpeg')center/cover no-repeat; }
+.i5 { background: url('images/cake.jpeg')center/cover no-repeat; }
+.i6 { background: url('images/brownie.jpeg')center/cover no-repeat; }
+.i7 { background: url('images/fresh ingredeint.jpeg')center/cover no-repeat; }
+.insta-handle { text-align: center; margin-top: 28px; font-size: 0.82rem; color: var(--text-muted); }
+.insta-handle a { color: var(--gold); font-weight: 600; }
+
+/* ===== FOOTER ===== */
+footer { background: var(--charcoal); padding: 80px 0 0; }
+.footer-inner { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1.2fr; gap: 50px; padding-bottom: 50px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+.footer-brand p { font-size: 0.82rem; color: rgba(255,255,255,0.4); line-height: 1.8; margin: 16px 0 24px; }
+.footer-logo { font-family: 'Playfair Display', serif; font-size: 1.5rem; color: var(--gold); }
+.footer-logo span { display: block; font-size: 0.58rem; color: rgba(255,255,255,0.3); letter-spacing: 0.3em; font-family: 'Poppins', sans-serif; margin-top: 2px; }
+.footer-social { display: flex; gap: 10px; }
+.footer-social a { width: 36px; height: 36px; border-radius: 50%; border: 1px solid rgba(201,168,76,0.25); display: flex; align-items: center; justify-content: center; color: rgba(255,255,255,0.4); font-size: 0.85rem; transition: var(--transition); }
+.footer-social a:hover { background: var(--gold); color: var(--espresso); border-color: var(--gold); }
+.footer-col h4 { font-size: 0.68rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.footer-col ul li a { font-size: 0.82rem; color: rgba(255,255,255,0.4); transition: color 0.3s; }
+.footer-col ul li a:hover { color: var(--gold); }
+.footer-col p { font-size: 0.82rem; color: rgba(255,255,255,0.4); line-height: 1.8; }
+.newsletter-form { display: flex; gap: 0; margin-top: 8px; border-radius: 3px; overflow: hidden; }
+.newsletter-form input { flex: 1; padding: 12px 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(201,168,76,0.2); border-right: none; color: var(--ivory); font-size: 0.8rem; font-family: 'Poppins', sans-serif; outline: none; }
+.newsletter-form input::placeholder { color: rgba(255,255,255,0.25); }
+.newsletter-form button { padding: 12px 20px; background: var(--gold); color: var(--espresso); font-size: 0.75rem; font-weight: 700; cursor: pointer; transition: var(--transition); border: none; }
+.newsletter-form button:hover { background: var(--gold-light); }
+.footer-bottom { text-align: center; padding: 22px; font-size: 0.72rem; color: rgba(255,255,255,0.25); }
+.footer-bottom span { color: var(--gold); opacity: 0.6; }
+
+/* ===== FLOATING ELEMENTS ===== */
+.wa-float {
+  position: fixed; bottom: 28px; right: 28px; z-index: 900;
+  width: 56px; height: 56px; border-radius: 50%;
+  background: linear-gradient(135deg, #25D366, #1ebe5d);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.6rem; color: white; box-shadow: 0 6px 30px rgba(37,211,102,0.45);
+  transition: var(--transition); animation: waPulse 3s ease-in-out infinite;
+}
+.wa-float:hover { transform: scale(1.12); box-shadow: 0 10px 40px rgba(37,211,102,0.6); }
+@keyframes waPulse { 0%,100% { box-shadow: 0 6px 30px rgba(37,211,102,0.45); } 50% { box-shadow: 0 6px 40px rgba(37,211,102,0.7), 0 0 0 10px rgba(37,211,102,0.1); } }
+.book-mobile {
+  display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 800;
+  background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+  color: var(--espresso); text-align: center; padding: 16px;
+  font-size: 0.8rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase;
+}
+
+/* ===== MOBILE NAV ===== */
+.mobile-nav {
+  position: fixed; inset: 0; background: var(--espresso); z-index: 990;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 30px; opacity: 0; pointer-events: none; transition: opacity 0.4s;
+}
+.mobile-nav.open { opacity: 1; pointer-events: all; }
+.mobile-nav a { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--ivory); transition: color 0.3s; }
+.mobile-nav a:hover { color: var(--gold); }
+.mobile-nav-close { position: absolute; top: 24px; right: 24px; font-size: 1.5rem; color: rgba(255,255,255,0.5); cursor: pointer; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .about-inner { grid-template-columns: 1fr; gap: 50px; }
+  .about-text { padding-right: 0; }
+  .why-grid { grid-template-columns: repeat(2, 1fr); }
+  .events-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-inner { grid-template-columns: 1fr 1fr; gap: 36px; }
+  .insta-grid { grid-template-columns: repeat(4, 1fr); }
+  .insta-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+  .testimonial-slide { padding: 0 5%; }
+}
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .hero-social { display: none; }
+  .menu-tabs { gap: 6px; }
+  .menu-tab { padding: 7px 14px; font-size: 0.65rem; }
+  .reservation-inner { grid-template-columns: 1fr; }
+  .location-inner { grid-template-columns: 1fr; }
+  .why-grid { grid-template-columns: 1fr; }
+  .events-grid { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+  .gallery-grid { columns: 2 200px; }
+  .form-row { grid-template-columns: 1fr; }
+  .insta-grid { grid-template-columns: repeat(3, 1fr); }
+  .insta-item:nth-child(1) { grid-column: span 1; grid-row: span 1; }
+  .book-mobile { display: block; }
+  .wa-float { bottom: 80px; }
+  .testi-card { padding: 30px 22px; }
+  .testi-text { font-size: 0.95rem; }
+  .res-form { padding: 28px 20px; }
+}
+@media (max-width: 480px) {
+  .hero-title { font-size: 2.4rem; }
+  .gallery-grid { columns: 1; }
+  .insta-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Utility */
+.text-center { text-align: center; }
+.mt-4 { margin-top: 16px; }
+.mt-8 { margin-top: 32px; }
+</style>
+</head>
+<body>
+
+<!-- CURSOR -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- PRELOADER -->
+<div id="preloader">
+  <div class="coffee-icon">☕</div>
+  <div class="preloader-logo">Cafe CornerStone</div>
+  <div class="preloader-sub">by Pallavi Daga · Jaipur</div>
+  <div class="preloader-bar-wrap"><div class="preloader-bar"></div></div>
+</div>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+  <span class="mobile-nav-close" onclick="closeMobileNav()"><i class="fas fa-times"></i></span>
+  <a href="#about" onclick="closeMobileNav()">Our Story</a>
+  <a href="#menu" onclick="closeMobileNav()">Menu</a>
+  <a href="#reservation" onclick="closeMobileNav()">Reserve</a>
+  <a href="#gallery" onclick="closeMobileNav()">Gallery</a>
+  <a href="#location" onclick="closeMobileNav()">Visit Us</a>
+</div>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-logo">
+    Cafe CornerStone
+    <span>by Pallavi Daga · Jaipur</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">Our Story</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#testimonials">Reviews</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#location">Visit</a></li>
+    <li><a href="#reservation" class="nav-cta">Book Table</a></li>
+  </ul>
+  <div class="hamburger" onclick="openMobileNav()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-video-wrap">
+    <div class="hero-bg-circles">
+      <div class="hero-circle"></div>
+      <div class="hero-circle"></div>
+      <div class="hero-circle"></div>
+    </div>
+  </div>
+  <div class="hero-overlay"></div>
+
+  <div class="hero-content">
+    <span class="hero-eyebrow">✦ Jaipur's Premier Café Destination ✦</span>
+    <h1 class="hero-title">Every Cup<br><em>Tells a Story</em></h1>
+    <p class="hero-subtitle">Experience Jaipur's most elegant café destination where gourmet cuisine, artisanal coffee and unforgettable moments come together.</p>
+    <div class="hero-buttons">
+      <a href="#menu" class="btn-primary">Explore Menu</a>
+      <a href="#reservation" class="btn-outline">Reserve Your Table</a>
+    </div>
+  </div>
+
+  <div class="hero-social">
+    <a href="https://www.instagram.com/cafecornerstone" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.facebook.com/cafecornerstone" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://wa.me/917678373659" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <div class="about-inner">
+      <div class="about-text reveal-left">
+        <span class="section-eyebrow">✦ Our Story</span>
+        <h2 class="section-title">Crafted with<br><em>Heart & Soul</em></h2>
+        <div class="section-divider"></div>
+        <p>Cafe CornerStone by Pallavi Daga is a <strong>women-owned premium café</strong> nestled in the heart of Jaipur's prestigious C-Scheme neighbourhood. Born from a passion for exceptional experiences, every detail — from the hand-selected coffee beans to the artfully plated desserts — reflects an unwavering commitment to quality.</p>
+        <p>Known for <strong>exceptional hospitality, gourmet vegetarian cuisine, handcrafted beverages,</strong> and a sophisticated ambience that feels both luxurious and warmly welcoming, Cafe CornerStone has become Jaipur's favourite gathering place for discerning guests.</p>
+        <p>Whether you're here for a quiet morning espresso, a celebratory brunch, or an intimate family dinner — we promise every moment with us will be memorable.</p>
+        <div class="about-badges">
+          <span class="badge">👩 Women-Owned</span>
+          <span class="badge">🌿 Pure Veg</span>
+          <span class="badge">☕ Artisanal Coffee</span>
+          <span class="badge">✨ C-Scheme, Jaipur</span>
+        </div>
+      </div>
+      <div class="about-images reveal-right">
+        <div class="about-img">
+          <div class="about-img-placeholder img-coffee">
+            
+    
+          </div>
+          <div class="photo-label"><span class="photo-label-text">Our Signature Coffee Bar</span></div>
+        </div>
+        <div class="about-img">
+          <div class="about-img-placeholder img-interior">
+           
+          </div>
+          <div class="photo-label"><span class="photo-label-text">Sophisticated Dining Space</span></div>
+        </div>
+        <div class="about-img">
+          <div class="about-img-placeholder img-food">
+            
+          </div>
+          <div class="photo-label"><span class="photo-label-text">Handcrafted Creations</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu">
+  <div class="container">
+    <div class="menu-header reveal">
+      <span class="section-eyebrow">✦ Culinary Excellence</span>
+      <h2 class="section-title" style="color:var(--ivory)">Our <em style="color:var(--gold-light)">Signature</em> Menu</h2>
+      <div class="section-divider center"></div>
+      <p style="color:rgba(255,255,255,0.45); font-size:0.88rem; max-width:500px; margin:0 auto 28px;">Every dish is crafted with the finest ingredients and presented with artistic flair.</p>
+      <div class="menu-search-wrap">
+        <i class="fas fa-search menu-search-icon"></i>
+        <input type="text" class="menu-search" placeholder="Search menu items..." oninput="filterMenu(this.value)" id="menuSearch">
+      </div>
+    </div>
+    <div class="menu-tabs reveal" id="menuTabs">
+      <button class="menu-tab active" onclick="filterCategory('all', this)">All</button>
+      <button class="menu-tab" onclick="filterCategory('soups', this)">Soups</button>
+      <button class="menu-tab" onclick="filterCategory('platters', this)">Platters</button>
+      <button class="menu-tab" onclick="filterCategory('indian', this)">Indian</button>
+      <button class="menu-tab" onclick="filterCategory('pasta', this)">Pasta</button>
+      <button class="menu-tab" onclick="filterCategory('pizza', this)">Pizza</button>
+      <button class="menu-tab" onclick="filterCategory('wraps', this)">Wraps</button>
+      <button class="menu-tab" onclick="filterCategory('sandwiches', this)">Sandwiches</button>
+      <button class="menu-tab" onclick="filterCategory('desserts', this)">Desserts</button>
+      <button class="menu-tab" onclick="filterCategory('shakes', this)">Shakes</button>
+      <button class="menu-tab" onclick="filterCategory('tea', this)">Tea</button>
+      <button class="menu-tab" onclick="filterCategory('coffee', this)">Coffee</button>
+      <button class="menu-tab" onclick="filterCategory('smoothies', this)">Smoothies</button>
+      <button class="menu-tab" onclick="filterCategory('beverages', this)">Beverages</button>
+    </div>
+    <div class="menu-grid" id="menuGrid">
+      <!-- SOUPS -->
+      <div class="menu-card" data-cat="soups" data-name="tomato basil soup">
+        <div class="menu-card-img" style="background: url('images/tomato\ basil\ soupe.jpeg') center/cover no-repeat;"></div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">Tomato Basil Soupe</h3>
+          <p class="menu-card-desc">Slow-roasted vine tomatoes, fresh basil, cream and croutons</p>
+          <div class="menu-card-footer"><span class="menu-card-price">₹220</span><span class="menu-card-tag">Soup</span></div>
+        </div>
+      </div>
+      <div class="menu-card" data-cat="soups" data-name="mushroom cream soup">
+        <div class="menu-card-img" style="background: url('images/mashroom\ cream\ soupe\ image.jpeg') center/cover no-repeat;"></div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">Mushroom Cream Soup</h3>
+          <p class="menu-card-desc">Wild mushroom blend, truffle essence, fresh cream and herbs</p>
+          <div class="menu-card-footer"><span class="menu-card-price">₹260</span><span class="menu-card-tag">Soup</span></div>
+        </div>
+      </div>
+
+      <!-- PLATTERS -->
+      <div class="menu-card" data-cat="platters" data-name="greek mezze platter">
+        <div class="menu-card-img sig" style="background:url('images/freek\ mezze\ platte\ image.jpeg')center/cover no-repeat;"></div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">Greek Mezze Platter</h3>
+          <p class="menu-card-desc">Hummus, falafel, tzatziki, pita, olives, stuffed grape leaves — a Mediterranean feast</p>
+          <div class="menu-card-footer"><span class="menu-card-price">₹580</span><span class="menu-card-tag">Signature</span></div>
+        </div>
+      </div>
+      <div class="menu-card" data-cat="platters" data-name="cheese platter">
+        <div class="menu-card-img" style="background:url('images/artisan\ cheese\ platte\ image.jpeg')center/cover no-repeat;"></div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">Artisan Cheese Platter</h3>
+          <p class="menu-card-desc">Selection of imported cheeses, crackers, fig jam and candied walnuts</p>
+          <div class="menu-card-footer"><span class="menu-card-price">₹620</span><span class="menu-card-tag">Platter</span></div>
+        </div>
+      </div>
+
+      <!-- INDIAN -->
+      <div class="menu-card" data-cat="indian" data-name="paneer tikka">
+        <div class="menu-card-img" style="background:url('images/paneer\ tikka\ image.jpeg')center/cover no-repeat;"></div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">Paneer Tikka</h3>
+          <p class="menu-card-desc">Tandoor-grilled cottage cheese with mint chutney and pickled onion</p>
+          <div class="menu-card-footer"><span class="menu-card-price">₹340</span><span class="menu-card-tag">Indian</span></div>
+        </div>
+      </div>
+      <div class="menu-card" data-cat="indian" data-name="dal makhani">
+        <div class="menu-card-img" style="background:url('images/dal\ makhni\ image.jpeg')center/cover no-repeat;"></div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">Dal Makhani</h3>
+          <p class="menu-card-desc">Slow-cooked black lentils, butter, cream — slow-simmered over hours</p>
+          <div class="menu-card-footer"><span class="menu-card-price">₹320</span><span class="menu-card-tag">Indian</span></div>
+        </div>
+      </div>
+
+      <!-- PASTA -->
+      <div class="menu-card" data-cat="pasta" data-name="ravioli pasta">
+        <div class="menu-card-img sig" style="background:url('images/ravioli\ pasta\ image.jpeg')center/cover no-repeat;"></div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">Ravioli Pasta</h3>
+          <p class="menu-card-desc">Handmade ricotta-filled ravioli, sage butter, pine nuts, parmesan shavings</p>
+          <div class="menu-card-footer"><span class="menu-card-price">₹480</span><span class="menu-card-tag">Signature</span></div>
+        </div>
+      </div>
+      <div class="menu-card" data-cat="pasta" data-name="pesto arrabbiata pasta">
+        <div class="menu-card-img" style="background:url('images/pesto\ pasta\ image.jpeg')center/cover no-repeat;"></div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">Pesto Pasta</h3>
+          <p class="menu-card-desc">Penne with house-made basil pesto, sun-dried tomatoes, pine nuts</p>
+          <div class="menu-card-footer"><span class="menu-card-price">₹360</span><span class="menu-card-tag">Pasta</span></div>
+        </div>
+      </div>
+      <div class="menu-card" data-cat="pasta" data-name="arrabbiata pasta">
+        <div class="menu-card-img" style="background:url('images/arrabhiata\ image.jpeg')center/cover no-repeat;"></div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">Arrabbiata</h3>
+          <p class="menu-card-desc">Penne in fiery San Marzano tomato, garlic and chili sauce, fresh basil</p>
+          <div class="menu-card-footer"><span class="menu-card-price">₹320</span><span class="menu-card-tag">Pasta</span></div>
+        </div>
+      </div>
+
+      <!-- PIZZA -->
+      <div class="menu-card" data-cat="pizza" data-name="quattro formaggi pizza">
+        <div class="menu-card-img sig" style="background:url('images/Quattro\ Formaggi\ image.jpeg')center/cover no-repeat;"></div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">Quattro Formaggi</h3>
+          <p class="menu-card-desc">Four-cheese blend: mozzarella, gorgonzola, fontina & parmesan on crispy thin crust</p>
+          <div class="menu-card-footer"><span class="menu-card-price">₹520</span><span class="menu-card-tag">Signature</span></div>
+        </div>
+      </div>
+      <div class="menu-card" data-cat="pizza" data-name="pesto pizza">
+        <div class="menu-card-img sig" style="background:url('images/Pesto\ Pizza\ image.jpeg')center/cover no-repeat;"></div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">Pesto Pizza</h3>
+          <p class="menu-card-desc">Walnut pesto base, buffalo mozzarella, cherry tomatoes, fresh arugula, lemon zest</p>
+          <div class="menu-card-footer"><span class="menu-card-price">₹490</span><span class="menu-card-tag">Signature</span></div>
+        </div>
+      </div>
+      <div class="menu-card" data-cat="pizza" data-name="margherita pizza">
+        <div class="menu-card-img" style="background:url('images/marghrita\ pizza.jpeg')center/cover no-repeat;"></div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">Margherita</h3>
+          <p class="menu-card-desc">San Marzano tomato, fresh buffalo mozzarella, basil, extra virgin olive oil</p>
+          <div class="menu-card-footer"><span class="menu-card-price">₹380</span><span class="menu-card-tag">Pizza</span></div>
+        </div>
+      </div>
+
+      <!-- WRAPS -->
+      <div class="menu-card" data-cat="wraps" data-name="falafel wrap">
+        <div class="menu-card-img" style="background:url('images/falefal\ wrap.jpeg')center/cover no-repeat;"></div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">Falafel Wrap</h3>
+          <p class="menu-card-desc">Crispy falafel, hummus, pickled vegetables, tahini in warm flatbread</p>
+          <div class="menu-card-footer"><span class="menu-card-price">₹320</span><span class="menu-card-tag">Wrap</span></div>
+        </div>
+      </div>
+      <div class="menu-card" data-cat="wraps" data-name="paneer tikka wrap">
+        <div class="menu-card-img" style="background:url('images/paneer\ tikka\ wrap\ image.jpeg')center/cover no-repeat;"></div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">Paneer Tikka Wrap</h3>
+          <p class="menu-card-desc">Grilled paneer, peppers, caramelised onions, mint mayo in a toasted wrap</p>
+          <div class="menu-card-footer"><span class="menu-card-price">₹340</span><span class="menu-card-tag">Wrap</span></div>
+        </div>
+      </div>
+
+      <!-- SANDWICHES -->
+      <div class="menu-card" data-cat="sandwiches" data-name="club sandwich">
+        <div class="menu-card-img" style="background:url('images/club\ sandwich\ image.jpeg')center/cover no-repeat;"></div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">Club Sandwich</h3>
+          <p class="menu-card-desc">Triple-decker with grilled veggies, cheese, lettuce, tomato, house aioli</p>
+          <div class="menu-card-footer"><span class="menu-card-price">₹340</span><span class="menu-card-tag">Sandwich</span></div>
+        </div>
+      </div>
+      <div class="menu-card" data-cat="sandwiches" data-name="croque monsieur">
+        <div class="menu-card-img" style="background:url('images/croque\ monsieur\ image.jpeg')center/cover no-repeat;"></div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">Croque Monsieur (Veg)</h3>
+          <p class="menu-card-desc">Toasted brioche, béchamel, Gruyère, with truffle oil drizzle</p>
+          <div class="menu-card-footer"><span class="menu-card-price">₹380</span><span class="menu-card-tag">Sandwich</span></div>
+        </div>
+      </div>
+
+      <!-- DESSERTS -->
+      <div class="menu-card" data-cat="desserts" data-name="brownie pinata">
+        <div class="menu-card-img sig" style="background:url('images/brownie\ pinata\ image.jpeg')center/cover no-repeat;"></div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">Brownie Piñata</h3>
+          <p class="menu-card-desc">Dark chocolate dome filled with gems, fudge brownie base, warm chocolate pour</p>
+          <div class="menu-card-footer"><span class="menu-card-price">₹480</span><span class="menu-card-tag">Signature</span></div>
+        </div>
+      </div>
+      <div class="menu-card" data-cat="desserts" data-name="belgian dark chocolate waffle">
+        <div class="menu-card-img sig" style="background:url('images/belgian\ dark\ choc\ waffles.jpeg')center/cover no-repeat;"></div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">Belgian Dark Chocolate Waffle</h3>
+          <p class="menu-card-desc">Crispy liège waffle, Callebaut dark chocolate, vanilla bean gelato, caramel drizzle</p>
+          <div class="menu-card-footer"><span class="menu-card-price">₹420</span><span class="menu-card-tag">Signature</span></div>
+        </div>
+      </div>
+      <div class="menu-card" data-cat="desserts" data-name="tiramisu">
+        <div class="menu-card-img" style="background:url('images/tiramisu\ image.jpeg')center/cover no-repeat;"></div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">Tiramisu</h3>
+          <p class="menu-card-desc">Classic Italian with espresso-soaked ladyfingers, mascarpone, cocoa dusting</p>
+          <div class="menu-card-footer"><span class="menu-card-price">₹360</span><span class="menu-card-tag">Dessert</span></div>
+        </div>
+      </div>
+      <div class="menu-card" data-cat="desserts" data-name="cheesecake">
+        <div class="menu-card-img" style="background:url('images/new\ york\ cheesecake\ image.jpeg')center/cover no-repeat;"></div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">New York Cheesecake</h3>
+          <p class="menu-card-desc">Baked cream cheese on graham cracker crust, berry coulis, candied lemon</p>
+          <div class="menu-card-footer"><span class="menu-card-price">₹340</span><span class="menu-card-tag">Dessert</span></div>
+        </div>
+      </div>
+
+      <!-- SHAKES -->
+      <div class="menu-card" data-cat="shakes" data-name="nutella ferrero rocher shake">
+        <div class="menu-card-img sig" style="background:url('images/nutella\ ferrero\ rocher\ milkshake.jpeg')center/cover no-repeat;"></div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">Nutella Ferrero Rocher Shake</h3>
+          <p class="menu-card-desc">Creamy Nutella shake with crushed Ferrero Rocher, hazelnut cream, cocoa dust</p>
+          <div class="menu-card-footer"><span class="menu-card-price">₹380</span><span class="menu-card-tag">Signature</span></div>
+        </div>
+      </div>
+      <div class="menu-card" data-cat="shakes" data-name="oreo shake">
+        <div class="menu-card-img" style="background:url('images/oreo\ shake\ image.jpeg')center/cover no-repeat;"></div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">Oreo Shake</h3>
+          <p class="menu-card-desc">Blended Oreo cookies, vanilla ice cream, whipped cream, cookie crumble</p>
+          <div class="menu-card-footer"><span class="menu-card-price">₹320</span><span class="menu-card-tag">Shake</span></div>
+        </div>
+      </div>
+      <div class="menu-card" data-cat="shakes" data-name="mango shake">
+        <div class="menu-card-img" style="background:url('images/alphonso\ mango\ shake\ image.jpeg')center/cover no-repeat;"></div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">Alphonso Mango Shake</h3>
+          <p class="menu-card-desc">Fresh Alphonso mango pulp, vanilla ice cream, cardamom, saffron touch</p>
+          <div class="menu-card-footer"><span class="menu-card-price">₹300</span><span class="menu-card-tag">Shake</span></div>
+        </div>
+      </div>
+
+      <!-- TEA -->
+      <div class="menu-card" data-cat="tea" data-name="masala chai">
+        <div class="menu-card-img" style="background:url('images/corner stone masala\ chai\ iamge.jpeg')center/cover no-repeat;"></div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">CornerStone Masala Chai</h3>
+          <p class="menu-card-desc">Premium Assam blend, fresh ginger, cardamom, cinnamon, clove — our house recipe</p>
+          <div class="menu-card-footer"><span class="menu-card-price">₹140</span><span class="menu-card-tag">Tea</span></div>
+        </div>
+      </div>
+      <div class="menu-card" data-cat="tea" data-name="matcha latte">
+        <div class="menu-card-img" style="background:url('images/matcha\ latte\.jpeg')center/cover no-repeat;"></div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">Matcha Latte</h3>
+          <p class="menu-card-desc">Ceremonial grade matcha, steamed oat milk, touch of honey</p>
+          <div class="menu-card-footer"><span class="menu-card-price">₹260</span><span class="menu-card-tag">Tea</span></div>
+        </div>
+      </div>
+
+      <!-- COFFEE -->
+      <div class="menu-card" data-cat="coffee" data-name="signature espresso">
+        <div class="menu-card-img sig" style="background:url('images/corner\ stone\ espressoo\ image.jpeg')center/cover no-repeat;"></div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">CornerStone Espresso</h3>
+          <p class="menu-card-desc">Single-origin specialty beans, precision-extracted double shot, rich crema</p>
+          <div class="menu-card-footer"><span class="menu-card-price">₹200</span><span class="menu-card-tag">Signature</span></div>
+        </div>
+      </div>
+      <div class="menu-card" data-cat="coffee" data-name="cold brew coffee">
+        <div class="menu-card-img sig" style="background:url('images/coldbrew\ image.jpeg')center/cover no-repeat;"></div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">Cold Brew</h3>
+          <p class="menu-card-desc">18-hour steeped Arabica cold brew, served over crystal ice, vanilla-salted foam</p>
+          <div class="menu-card-footer"><span class="menu-card-price">₹280</span><span class="menu-card-tag">Signature</span></div>
+        </div>
+      </div>
+      <div class="menu-card" data-cat="coffee" data-name="cappuccino latte">
+        <div class="menu-card-img" style="background:url('images/cappacuino\ image.jpeg')center/cover no-repeat;"></div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">Cappuccino</h3>
+          <p class="menu-card-desc">Double espresso, velvety micro-foam milk, dusted with single-origin cocoa</p>
+          <div class="menu-card-footer"><span class="menu-card-price">₹220</span><span class="menu-card-tag">Coffee</span></div>
+        </div>
+      </div>
+      <div class="menu-card" data-cat="coffee" data-name="filter coffee">
+        <div class="menu-card-img" style="background:url('images/south\ indian\ flavour\ coffe.jpeg')center/cover no-repeat;"></div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">South Indian Filter Coffee</h3>
+          <p class="menu-card-desc">Traditional Mysore blend drip coffee, full cream milk, served in tumbler-davara</p>
+          <div class="menu-card-footer"><span class="menu-card-price">₹180</span><span class="menu-card-tag">Coffee</span></div>
+        </div>
+      </div>
+
+      <!-- SMOOTHIES -->
+      <div class="menu-card" data-cat="smoothies" data-name="berry blast smoothie">
+        <div class="menu-card-img" style="background:url('images/berry\ blast\ smoothie\ image.jpeg')center/cover no-repeat;"></div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">Berry Blast Smoothie</h3>
+          <p class="menu-card-desc">Blueberry, strawberry, raspberry, banana, Greek yogurt, chia seeds</p>
+          <div class="menu-card-footer"><span class="menu-card-price">₹280</span><span class="menu-card-tag">Smoothie</span></div>
+        </div>
+      </div>
+      <div class="menu-card" data-cat="smoothies" data-name="tropical green smoothie">
+        <div class="menu-card-img" style="background:url('images/tropical\ green\.jpeg')center/cover no-repeat;"></div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">Tropical Green</h3>
+          <p class="menu-card-desc">Spinach, mango, pineapple, coconut water, ginger, turmeric — freshly blended</p>
+          <div class="menu-card-footer"><span class="menu-card-price">₹300</span><span class="menu-card-tag">Smoothie</span></div>
+        </div>
+      </div>
+
+      <!-- BEVERAGES -->
+      <div class="menu-card" data-cat="beverages" data-name="virgin mojito">
+        <div class="menu-card-img" style="background:url('images/virgin\ mojito\.jpeg')center/cover no-repeat;"></div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">Virgin Mojito</h3>
+          <p class="menu-card-desc">Freshly muddled mint, lime, sugar cane syrup, sparkling water, crushed ice</p>
+          <div class="menu-card-footer"><span class="menu-card-price">₹220</span><span class="menu-card-tag">Mocktail</span></div>
+        </div>
+      </div>
+      <div class="menu-card" data-cat="beverages" data-name="rose lemonade">
+        <div class="menu-card-img" style="background:url('images/rose\ lemonade\ .jpeg')center/cover no-repeat;"></div>
+        <div class="menu-card-body">
+          <h3 class="menu-card-name">Rose Lemonade</h3>
+          <p class="menu-card-desc">Homemade rose syrup, fresh lemon, sparkling water, rose petals — refreshingly floral</p>
+          <div class="menu-card-footer"><span class="menu-card-price">₹200</span><span class="menu-card-tag">Beverage</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="no-results" id="noResults">No items found matching your search.</div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="container">
+    <div class="rating-hero reveal">
+      <span class="stars-big">★★★★★</span>
+      <div class="rating-num">4.5</div>
+      <div class="rating-sub">250+ Happy Guests · Google Verified</div>
+    </div>
+    <div style="text-align:center; margin-bottom:50px;">
+      <span class="section-eyebrow">✦ What Our Guests Say</span>
+      <h2 class="section-title">Stories of <em>Delight</em></h2>
+      <div class="section-divider center"></div>
+    </div>
+    <div class="testimonial-carousel reveal">
+      <div class="carousel-arrows">
+        <button class="carousel-arrow" onclick="changeSlide(-1)"><i class="fas fa-chevron-left"></i></button>
+        <button class="carousel-arrow" onclick="changeSlide(1)"><i class="fas fa-chevron-right"></i></button>
+      </div>
+      <div class="testimonial-track" id="testiTrack">
+        <div class="testimonial-slide">
+          <div class="testi-card">
+            <div class="testi-quote-icon">"</div>
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-text">"Cafe CornerStone is hands down the most beautiful café I've visited in Jaipur. The interiors are exquisite, the food is exceptional, and the service is warm and attentive. The Quattro Formaggi pizza and the Brownie Piñata are must-tries!"</p>
+            <div class="testi-author">
+              <div class="testi-avatar">P</div>
+              <div><div class="testi-name">Priya Sharma</div><div class="testi-role">Food Blogger · Jaipur</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-slide">
+          <div class="testi-card">
+            <div class="testi-quote-icon">"</div>
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-text">"We celebrated our anniversary here and it was absolutely magical. The ambience is so sophisticated and romantic. The Greek Mezze Platter was heavenly — and the specialty coffee collection is the best in the city. Pallavi and her team make you feel like royalty."</p>
+            <div class="testi-author">
+              <div class="testi-avatar">R</div>
+              <div><div class="testi-name">Rahul & Sneha Agarwal</div><div class="testi-role">Anniversary Celebration</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-slide">
+          <div class="testi-card">
+            <div class="testi-quote-icon">"</div>
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-text">"This is my family's favourite Sunday brunch spot. The food quality is consistently outstanding, the staff is incredibly warm, and the kids love the desserts. The Belgian Dark Chocolate Waffle is simply out of this world!"</p>
+            <div class="testi-author">
+              <div class="testi-avatar">A</div>
+              <div><div class="testi-name">Anjali Mehta</div><div class="testi-role">Regular Guest · C-Scheme</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-slide">
+          <div class="testi-card">
+            <div class="testi-quote-icon">"</div>
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-text">"Had a corporate team lunch here and everyone was thoroughly impressed. The private seating, impeccable service and the sheer variety of the menu made it perfect. The cold brew coffee is exceptional — proper specialty-grade stuff!"</p>
+            <div class="testi-author">
+              <div class="testi-avatar">V</div>
+              <div><div class="testi-name">Vikram Joshi</div><div class="testi-role">Corporate Client · Jaipur</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-slide">
+          <div class="testi-card">
+            <div class="testi-quote-icon">"</div>
+            <div class="testi-stars">★★★★★</div>
+            <p class="testi-text">"A gem in C-Scheme! Pallavi Daga has created something truly special — a café that feels like it belongs in Paris or Milan, yet is perfectly rooted in Jaipur. The Nutella Ferrero Rocher Shake changed my life. I recommend this place to everyone."</p>
+            <div class="testi-author">
+              <div class="testi-avatar">M</div>
+              <div><div class="testi-name">Meera Kapoor</div><div class="testi-role">Travel Writer</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-nav" id="carouselNav">
+        <div class="carousel-dot active" onclick="goToSlide(0)"></div>
+        <div class="carousel-dot" onclick="goToSlide(1)"></div>
+        <div class="carousel-dot" onclick="goToSlide(2)"></div>
+        <div class="carousel-dot" onclick="goToSlide(3)"></div>
+        <div class="carousel-dot" onclick="goToSlide(4)"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="container">
+    <div class="gallery-header reveal">
+      <span class="section-eyebrow">✦ Through Our Lens</span>
+      <h2 class="section-title">A Feast for <em>the Eyes</em></h2>
+      <div class="section-divider center"></div>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item reveal">
+        <div class="gallery-placeholder g1"></div>
+        <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+      </div>
+      <div class="gallery-item reveal" style="transition-delay:0.1s">
+        <div class="gallery-placeholder g2"></div>
+        <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+      </div>
+      <div class="gallery-item reveal" style="transition-delay:0.15s">
+        <div class="gallery-placeholder g3"></div>
+        <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+      </div>
+      <div class="gallery-item reveal" style="transition-delay:0.2s">
+        <div class="gallery-placeholder g4"></div>
+        <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+      </div>
+      <div class="gallery-item reveal" style="transition-delay:0.05s">
+        <div class="gallery-placeholder g5"></div>
+        <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+      </div>
+      <div class="gallery-item reveal" style="transition-delay:0.25s">
+        <div class="gallery-placeholder g6"></div>
+        <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+      </div>
+      <div class="gallery-item reveal" style="transition-delay:0.3s">
+        <div class="gallery-placeholder g7"></div>
+        <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+      </div>
+      <div class="gallery-item reveal" style="transition-delay:0.35s">
+        <div class="gallery-placeholder g8"></div>
+        <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+      </div>
+      <div class="gallery-item reveal" style="transition-delay:0.1s">
+        <div class="gallery-placeholder g9"></div>
+        <div class="gallery-overlay"><i class="fas fa-expand"></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY US -->
+<section id="why-us">
+  <div class="container">
+    <div class="why-header reveal">
+      <span class="section-eyebrow">✦ The CornerStone Difference</span>
+      <h2 class="section-title" style="color:var(--ivory)">Why Guests <em style="color:var(--gold)">Love Us</em></h2>
+      <div class="section-divider center"></div>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal" style="transition-delay:0s">
+        <span class="why-icon">☕</span>
+        <h3>Artisanal Coffee</h3>
+        <p>Single-origin specialty beans, precision-brewed to perfection by our trained baristas. Every cup is a crafted experience.</p>
+      </div>
+      <div class="why-card reveal" style="transition-delay:0.1s">
+        <span class="why-icon">🍕</span>
+        <h3>Gourmet Cuisine</h3>
+        <p>From handmade pasta to wood-fired pizzas, every dish is prepared with premium imported ingredients and culinary expertise.</p>
+      </div>
+      <div class="why-card reveal" style="transition-delay:0.2s">
+        <span class="why-icon">🌿</span>
+        <h3>Fresh Ingredients</h3>
+        <p>We source the finest seasonal produce, artisan cheeses and specialty imports to ensure every bite is exceptional.</p>
+      </div>
+      <div class="why-card reveal" style="transition-delay:0.1s">
+        <span class="why-icon">✨</span>
+        <h3>Elegant Ambience</h3>
+        <p>Thoughtfully designed interiors that blend warmth with sophistication — a space that feels like luxury, not effort.</p>
+      </div>
+      <div class="why-card reveal" style="transition-delay:0.2s">
+        <span class="why-icon">👩</span>
+        <h3>Women-Owned Business</h3>
+        <p>Founded and led by Pallavi Daga — a testament to passion, vision and the belief that great hospitality can change how people feel.</p>
+      </div>
+      <div class="why-card reveal" style="transition-delay:0.3s">
+        <span class="why-icon">❤️</span>
+        <h3>Exceptional Hospitality</h3>
+        <p>Our team treats every guest like family. Warm, attentive service that anticipates your needs before you even ask.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESERVATION -->
+<section id="reservation">
+  <div class="container">
+    <div class="reservation-inner">
+      <div class="res-info reveal-left">
+        <span class="section-eyebrow">✦ Reserve Your Table</span>
+        <h2>Book Your<br><em style="font-style:italic; color:var(--gold-dark)">Perfect Experience</em></h2>
+        <div class="section-divider"></div>
+        <p>Whether it's an intimate dinner for two or a family celebration, we curate every reservation to be a memorable experience. Our team will confirm your booking within 30 minutes.</p>
+        <ul class="res-perks">
+          <li><i class="fas fa-check"></i> Instant WhatsApp Confirmation</li>
+          <li><i class="fas fa-chair"></i> Indoor & Outdoor Seating Available</li>
+          <li><i class="fas fa-birthday-cake"></i> Special Occasion Arrangements</li>
+          <li><i class="fas fa-clock"></i> Flexible Time Slots</li>
+          <li><i class="fas fa-phone"></i> Dedicated Concierge Service</li>
+        </ul>
+        <div style="margin-top:36px; padding:24px; background:linear-gradient(135deg,var(--ivory),var(--beige)); border-radius:6px; border-left:4px solid var(--gold);">
+          <p style="font-size:0.78rem; color:var(--text-muted); margin-bottom:6px; letter-spacing:0.08em; text-transform:uppercase; font-weight:600;">Opening Hours</p>
+          <p style="font-size:0.88rem; color:var(--brown); line-height:1.7; margin:0;">
+            Monday – Sunday<br>
+            <strong>9:00 AM – 10:30 PM</strong>
+          </p>
+        </div>
+      </div>
+      <div class="res-form reveal-right" id="reservationForm">
+        <h3 class="form-title">Reserve a Table</h3>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Full Name</label>
+            <input type="text" id="resName" placeholder="Your name" required>
+          </div>
+          <div class="form-group">
+            <label>Mobile Number</label>
+            <input type="tel" id="resMobile" placeholder="+91 00000 00000" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Date</label>
+            <input type="date" id="resDate" required>
+          </div>
+          <div class="form-group">
+            <label>Time Slot</label>
+            <select id="resTime" required>
+              <option value="">Select time</option>
+              <option>09:00 AM – 10:00 AM</option>
+              <option>10:00 AM – 11:00 AM</option>
+              <option>11:00 AM – 12:00 PM</option>
+              <option>12:00 PM – 01:00 PM</option>
+              <option>01:00 PM – 02:00 PM</option>
+              <option>02:00 PM – 03:00 PM</option>
+              <option>03:00 PM – 04:00 PM</option>
+              <option>04:00 PM – 05:00 PM</option>
+              <option>05:00 PM – 06:00 PM</option>
+              <option>06:00 PM – 07:00 PM</option>
+              <option>07:00 PM – 08:00 PM</option>
+              <option>08:00 PM – 09:00 PM</option>
+              <option>09:00 PM – 10:00 PM</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Number of Guests</label>
+            <select id="resGuests" required>
+              <option value="">Select guests</option>
+              <option>1 Guest</option>
+              <option>2 Guests</option>
+              <option>3 Guests</option>
+              <option>4 Guests</option>
+              <option>5 Guests</option>
+              <option>6 Guests</option>
+              <option>7–10 Guests</option>
+              <option>10+ Guests (Group)</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Occasion</label>
+            <select id="resOccasion">
+              <option value="">Select occasion</option>
+              <option>Birthday Celebration</option>
+              <option>Anniversary</option>
+              <option>Corporate Meeting</option>
+              <option>Family Gathering</option>
+              <option>Kitty Party</option>
+              <option>Brunch Date</option>
+              <option>Casual Dining</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Seating Preference</label>
+          <div class="form-seating">
+            <div class="seating-opt">
+              <input type="radio" name="seating" id="indoor" value="Indoor" checked>
+              <label for="indoor">🏠 Indoor</label>
+            </div>
+            <div class="seating-opt">
+              <input type="radio" name="seating" id="outdoor" value="Outdoor">
+              <label for="outdoor">🌿 Outdoor</label>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Special Requests</label>
+          <textarea id="resNotes" placeholder="Any dietary requirements, special decorations, or other requests..."></textarea>
+        </div>
+        <button class="btn-submit" onclick="submitReservation()">Confirm Reservation</button>
+        <button class="btn-whatsapp" onclick="waReservation()"><i class="fab fa-whatsapp" style="font-size:1.2rem"></i> Reserve via WhatsApp</button>
+      </div>
+      <!-- Success State -->
+      <div class="booking-success" id="bookingSuccess">
+        <div class="success-icon">✓</div>
+        <h3 style="font-family:'Playfair Display',serif; font-size:1.8rem; color:var(--brown-dark); margin-bottom:10px;">Thank You!</h3>
+        <p style="color:var(--text-muted); font-size:0.88rem; margin-bottom:20px;">Your reservation has been received. We'll confirm via WhatsApp within 30 minutes.</p>
+        <div class="success-id">
+          <span>Booking ID</span>
+          <strong id="bookingIdDisplay">#CS-00000</strong>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-top:16px;">
+          <div class="success-id"><span>Date</span><strong id="successDate">—</strong></div>
+          <div class="success-id"><span>Time</span><strong id="successTime">—</strong></div>
+          <div class="success-id"><span>Guests</span><strong id="successGuests">—</strong></div>
+          <div class="success-id"><span>Seating</span><strong id="successSeating">—</strong></div>
+        </div>
+        <button class="btn-whatsapp" onclick="waReservation()" style="margin-top:24px; width:100%; display:flex; align-items:center; justify-content:center; gap:10px; padding:14px; border-radius:3px; cursor:pointer;">
+          <i class="fab fa-whatsapp" style="font-size:1.2rem"></i> Confirm on WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section id="events">
+  <div class="container">
+    <div class="events-header reveal">
+      <span class="section-eyebrow">✦ Private Events</span>
+      <h2 class="section-title">Host Your <em>Special Moments</em></h2>
+      <div class="section-divider center"></div>
+      <p style="color:var(--text-muted); font-size:0.88rem; max-width:500px; margin:0 auto;">From intimate birthdays to corporate events, we create tailored experiences for every occasion.</p>
+    </div>
+    <div class="events-grid">
+      <div class="event-card reveal" style="transition-delay:0s">
+        <span class="event-icon">🎂</span>
+        <h3>Birthday Celebrations</h3>
+        <p>Make your special day extraordinary with custom décor, personalized cakes and a dedicated host.</p>
+      </div>
+      <div class="event-card reveal" style="transition-delay:0.1s">
+        <span class="event-icon">👑</span>
+        <h3>Kitty Parties</h3>
+        <p>An elegant venue for your ladies' gathering — curated menus, beautiful setups and impeccable service.</p>
+      </div>
+      <div class="event-card reveal" style="transition-delay:0.2s">
+        <span class="event-icon">💼</span>
+        <h3>Corporate Meetings</h3>
+        <p>Professional ambience, business-class dining and seamless AV support for your team events.</p>
+      </div>
+      <div class="event-card reveal" style="transition-delay:0.05s">
+        <span class="event-icon">👨‍👩‍👧</span>
+        <h3>Family Gatherings</h3>
+        <p>Spacious seating, a menu that delights all ages, and warm hospitality that makes family time special.</p>
+      </div>
+      <div class="event-card reveal" style="transition-delay:0.15s">
+        <span class="event-icon">🥂</span>
+        <h3>Anniversary Dinners</h3>
+        <p>Intimate, romantic settings with personalised touches — candlelight, flowers and a menu created just for you.</p>
+      </div>
+      <div class="event-card reveal" style="transition-delay:0.25s">
+        <span class="event-icon">☀️</span>
+        <h3>Brunch Events</h3>
+        <p>Elevate your weekend brunch into a social event — a lavish spread, flowing beverages and great company.</p>
+      </div>
+    </div>
+    <div style="text-align:center; margin-top:40px;">
+      <a href="https://wa.me/917678373659?text=Hello%20Cafe%20CornerStone!%20I%20would%20like%20to%20enquire%20about%20hosting%20a%20private%20event%20at%20your%20venue." target="_blank" class="btn-primary" style="display:inline-block;">Enquire for Events</a>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section id="location">
+  <div class="container">
+    <div style="text-align:center; margin-bottom:60px;" class="reveal">
+      <span class="section-eyebrow">✦ Find Us</span>
+      <h2 class="section-title" style="color:var(--ivory)">Come <em style="color:var(--gold)">Visit Us</em></h2>
+      <div class="section-divider center"></div>
+    </div>
+    <div class="location-inner">
+      <div class="location-info reveal-left">
+        <div class="location-detail">
+          <div class="location-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div>
+            <h4>Address</h4>
+            <p>D-4, Malviya Marg, C Scheme,<br>Ashok Nagar, Jaipur,<br>Rajasthan 302001</p>
+          </div>
+        </div>
+        <div class="location-detail">
+          <div class="location-icon"><i class="fas fa-phone"></i></div>
+          <div>
+            <h4>Phone</h4>
+            <p><a href="tel:+917678373659" style="color:rgba(255,255,255,0.75)">+91 76783 73659</a></p>
+          </div>
+        </div>
+        <div class="location-detail">
+          <div class="location-icon"><i class="fas fa-clock"></i></div>
+          <div>
+            <h4>Opening Hours</h4>
+            <p>Monday – Sunday<br><strong style="color:var(--gold)">9:00 AM – 10:30 PM</strong></p>
+          </div>
+        </div>
+        <div class="location-detail">
+          <div class="location-icon"><i class="fas fa-envelope"></i></div>
+          <div>
+            <h4>Email</h4>
+            <p>hello@cafecornerstone.in</p>
+          </div>
+        </div>
+        <a href="https://maps.google.com/?q=D-4+Malviya+Marg+C+Scheme+Jaipur" target="_blank" class="directions-btn">
+          <i class="fas fa-directions"></i> Get Directions
+        </a>
+      </div>
+      <div class="map-wrap reveal-right">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3558.0!2d75.7960!3d26.9145!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396db519fe5a7019%3A0x21c2736e0d5a2f77!2sC%20Scheme%2C%20Jaipur%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin"
+          width="100%" height="400" style="display:block" loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section id="instagram">
+  <div class="container">
+    <div class="instagram-header reveal">
+      <span class="section-eyebrow">✦ Follow Our Journey</span>
+      <h2 class="section-title">We're on <em>Instagram</em></h2>
+      <div class="section-divider center"></div>
+      <p style="color:var(--text-muted); font-size:0.85rem;">Share your moments with us <strong>@cafecornerstone</strong></p>
+    </div>
+    <div class="insta-grid reveal">
+      <div class="insta-item"><div class="insta-placeholder i1"></div><div class="insta-overlay"><i class="fab fa-instagram"></i></div></div>
+      <div class="insta-item"><div class="insta-placeholder i2"></div><div class="insta-overlay"><i class="fab fa-instagram"></i></div></div>
+      <div class="insta-item"><div class="insta-placeholder i3"></div><div class="insta-overlay"><i class="fab fa-instagram"></i></div></div>
+      <div class="insta-item"><div class="insta-placeholder i4"></div><div class="insta-overlay"><i class="fab fa-instagram"></i></div></div>
+      <div class="insta-item"><div class="insta-placeholder i5"></div><div class="insta-overlay"><i class="fab fa-instagram"></i></div></div>
+      <div class="insta-item"><div class="insta-placeholder i6"></div><div class="insta-overlay"><i class="fab fa-instagram"></i></div></div>
+      <div class="insta-item"><div class="insta-placeholder i7"></div><div class="insta-overlay"><i class="fab fa-instagram"></i></div></div>
+    </div>
+    <div class="insta-handle">
+      <a href="https://www.instagram.com/cafecornerstone" target="_blank">@cafecornerstone</a> · Follow us for daily updates, specials and behind-the-scenes moments
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <div class="footer-logo">Cafe CornerStone<span>by Pallavi Daga · Est. Jaipur</span></div>
+        <p>Jaipur's most elegant café destination. Where every cup tells a story and every meal becomes a memory. Visit us in C-Scheme and let us craft your perfect moment.</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/cafecornerstone" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/cafecornerstone" target="_blank"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://wa.me/917678373659" target="_blank"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://g.page/cafecornerstone" target="_blank"><i class="fab fa-google"></i></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#about">Our Story</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#reservation">Book a Table</a></li>
+          <li><a href="#events">Private Events</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#location">Visit Us</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <p>D-4, Malviya Marg, C Scheme, Ashok Nagar, Jaipur 302001</p>
+        <br>
+        <p><a href="tel:+917678373659" style="color:rgba(255,255,255,0.4);">+91 76783 73659</a></p>
+        <p>hello@cafecornerstone.in</p>
+        <br>
+        <p style="color:var(--gold); font-size:0.78rem;">Mon–Sun: 9 AM – 10:30 PM</p>
+      </div>
+      <div class="footer-col">
+        <h4>Newsletter</h4>
+        <p>Subscribe for exclusive offers, seasonal menus and café news.</p>
+        <br>
+        <div class="newsletter-form">
+          <input type="email" placeholder="Your email">
+          <button onclick="subscribeNewsletter(this)">→</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2024 Cafe CornerStone by Pallavi Daga · Jaipur. All rights reserved. · Crafted with <span>♥</span> in Jaipur
+  </div>
+</footer>
+
+<!-- FLOATING ELEMENTS -->
+<a href="https://wa.me/917678373659?text=Hello%20Cafe%20CornerStone!%20I%20would%20like%20to%20make%20a%20reservation." target="_blank" class="wa-float" title="Chat on WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+<a href="#reservation" class="book-mobile">✦ Reserve Your Table</a>
+
+<script>
+// ===== PRELOADER =====
+window.addEventListener('load', () => {
+  setTimeout(() => {
+    document.getElementById('preloader').classList.add('hidden');
+  }, 1800);
+});
+
+// ===== CURSOR =====
+const dot = document.getElementById('cursorDot');
+const ring = document.getElementById('cursorRing');
+document.addEventListener('mousemove', e => {
+  dot.style.left = e.clientX + 'px';
+  dot.style.top = e.clientY + 'px';
+  setTimeout(() => {
+    ring.style.left = e.clientX + 'px';
+    ring.style.top = e.clientY + 'px';
+  }, 60);
+});
+document.querySelectorAll('a, button, .menu-card, .gallery-item, .event-card, .why-card, .carousel-arrow').forEach(el => {
+  el.addEventListener('mouseenter', () => { dot.classList.add('hover'); ring.classList.add('hover'); });
+  el.addEventListener('mouseleave', () => { dot.classList.remove('hover'); ring.classList.remove('hover'); });
+});
+
+// ===== NAVBAR =====
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// ===== MOBILE NAV =====
+function openMobileNav() { document.getElementById('mobileNav').classList.add('open'); }
+function closeMobileNav() { document.getElementById('mobileNav').classList.remove('open'); }
+
+// ===== SCROLL REVEAL =====
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); } });
+}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => revealObserver.observe(el));
+
+// ===== MENU FILTERING =====
+let activeCategory = 'all';
+function filterCategory(cat, btn) {
+  activeCategory = cat;
+  document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  applyFilters();
+}
+function filterMenu(query) { applyFilters(query); }
+function applyFilters(query) {
+  const q = (query || document.getElementById('menuSearch').value).toLowerCase().trim();
+  let visible = 0;
+  document.querySelectorAll('.menu-card').forEach(card => {
+    const catMatch = activeCategory === 'all' || card.dataset.cat === activeCategory;
+    const nameMatch = !q || card.dataset.name.includes(q);
+    const show = catMatch && nameMatch;
+    card.classList.toggle('hidden', !show);
+    if (show) visible++;
+  });
+  document.getElementById('noResults').style.display = visible === 0 ? 'block' : 'none';
+}
+
+// ===== TESTIMONIAL CAROUSEL =====
+let currentSlide = 0;
+const slides = document.querySelectorAll('.testimonial-slide');
+const dots = document.querySelectorAll('.carousel-dot');
+function goToSlide(n) {
+  currentSlide = n;
+  document.getElementById('testiTrack').style.transform = `translateX(-${n * 100}%)`;
+  dots.forEach((d, i) => d.classList.toggle('active', i === n));
+}
+function changeSlide(dir) {
+  currentSlide = (currentSlide + dir + slides.length) % slides.length;
+  goToSlide(currentSlide);
+}
+setInterval(() => changeSlide(1), 5500);
+
+// ===== RESERVATION =====
+function submitReservation() {
+  const name = document.getElementById('resName').value.trim();
+  const mobile = document.getElementById('resMobile').value.trim();
+  const date = document.getElementById('resDate').value;
+  const time = document.getElementById('resTime').value;
+  const guests = document.getElementById('resGuests').value;
+  if (!name || !mobile || !date || !time || !guests) {
+    alert('Please fill in all required fields to complete your reservation.');
+    return;
+  }
+  const bookingId = '#CS-' + Math.floor(10000 + Math.random() * 90000);
+  const seating = document.querySelector('input[name="seating"]:checked').value;
+  document.getElementById('bookingIdDisplay').textContent = bookingId;
+  document.getElementById('successDate').textContent = new Date(date).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' });
+  document.getElementById('successTime').textContent = time.split('–')[0].trim();
+  document.getElementById('successGuests').textContent = guests;
+  document.getElementById('successSeating').textContent = seating;
+  document.getElementById('reservationForm').style.display = 'none';
+  const suc = document.getElementById('bookingSuccess');
+  suc.classList.add('show');
+  suc.style.display = 'block';
+}
+
+function waReservation() {
+  const name = document.getElementById('resName').value || 'Guest';
+  const date = document.getElementById('resDate').value || 'TBD';
+  const time = document.getElementById('resTime').value || 'TBD';
+  const guests = document.getElementById('resGuests').value || 'TBD';
+  const occasion = document.getElementById('resOccasion').value;
+  const seating = document.querySelector('input[name="seating"]:checked')?.value || 'Indoor';
+  const notes = document.getElementById('resNotes').value;
+  let msg = `Hello Cafe CornerStone! 🌟%0A%0AI would like to reserve a table.%0A%0A*Name:* ${name}%0A*Date:* ${date}%0A*Time:* ${time}%0A*Guests:* ${guests}%0A*Seating:* ${seating}`;
+  if (occasion) msg += `%0A*Occasion:* ${occasion}`;
+  if (notes) msg += `%0A*Notes:* ${notes}`;
+  msg += `%0A%0APlease confirm availability. Thank you! ☕`;
+  window.open(`https://wa.me/917678373659?text=${msg}`, '_blank');
+}
+
+// ===== SET MIN DATE =====
+const dateInput = document.getElementById('resDate');
+if (dateInput) {
+  const today = new Date().toISOString().split('T')[0];
+  dateInput.setAttribute('min', today);
+}
+
+// ===== NEWSLETTER =====
+function subscribeNewsletter(btn) {
+  const input = btn.previousElementSibling;
+  if (input.value && input.value.includes('@')) {
+    btn.textContent = '✓';
+    btn.style.background = '#4CAF50';
+    input.value = '';
+    setTimeout(() => { btn.textContent = '→'; btn.style.background = ''; }, 3000);
+  }
+}
+
+// ===== SMOOTH PARALLAX HERO =====
+window.addEventListener('scroll', () => {
+  const hero = document.getElementById('hero');
+  if (hero) {
+    const scroll = window.scrollY;
+    const circles = hero.querySelectorAll('.hero-circle');
+    circles.forEach((c, i) => {
+      c.style.transform = `translateY(${scroll * (0.1 + i * 0.05)}px)`;
+    });
+  }
+});
+</script>
+</body>
+</html>
